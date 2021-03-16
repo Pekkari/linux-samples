@@ -29,5 +29,5 @@ static void __exit sysinfo_exit(void)
 module_init(sysinfo_init);
 module_exit(sysinfo_exit);
 
-MODULE_AUTHOR("Jose Pekkarinen");
+MODULE_AUTHOR("José Pekkarinen");
 MODULE_LICENSE("GPL v2");

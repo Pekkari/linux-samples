@@ -29,5 +29,5 @@ static void __exit ps_exit(void)
 module_init(ps_init);
 module_exit(ps_exit);
 
-MODULE_AUTHOR("Jose Pekkarinen");
+MODULE_AUTHOR("José Pekkarinen");
 MODULE_LICENSE("GPL v2");
