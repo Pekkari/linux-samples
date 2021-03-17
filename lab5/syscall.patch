@@ -1,0 +1,35 @@
+diff --git a/arch/x86/entry/syscalls/syscall_32.tbl b/arch/x86/entry/syscalls/syscall_32.tbl
+index 874aeacde2dd..d0dbd08a5b43 100644
+--- a/arch/x86/entry/syscalls/syscall_32.tbl
++++ b/arch/x86/entry/syscalls/syscall_32.tbl
+@@ -446,3 +446,4 @@
+ 439	i386	faccessat2		sys_faccessat2
+ 440	i386	process_madvise		sys_process_madvise
+ 441	i386	epoll_pwait2		sys_epoll_pwait2		compat_sys_epoll_pwait2
++442	i386	syscall_test		sys_syscall_test
+diff --git a/arch/x86/entry/syscalls/syscall_64.tbl b/arch/x86/entry/syscalls/syscall_64.tbl
+index 78672124d28b..07b2ed2f3e2c 100644
+--- a/arch/x86/entry/syscalls/syscall_64.tbl
++++ b/arch/x86/entry/syscalls/syscall_64.tbl
+@@ -363,6 +363,7 @@
+ 439	common	faccessat2		sys_faccessat2
+ 440	common	process_madvise		sys_process_madvise
+ 441	common	epoll_pwait2		sys_epoll_pwait2
++442	common	syscall_test		sys_syscall_test
+ 
+ #
+ # Due to a historical design error, certain syscalls are numbered differently
+diff --git a/kernel/sys.c b/kernel/sys.c
+index 51f00fe20e4d..ecb9e91a9341 100644
+--- a/kernel/sys.c
++++ b/kernel/sys.c
+@@ -2700,3 +2700,9 @@ COMPAT_SYSCALL_DEFINE1(sysinfo, struct compat_sysinfo __user *, info)
+ 	return 0;
+ }
+ #endif /* CONFIG_COMPAT */
++
++SYSCALL_DEFINE1(syscall_test, unsigned int, param)
++{
++	pr_info("syscall called with %d, returning the magic number\n", param);
++	return 42;
++}
