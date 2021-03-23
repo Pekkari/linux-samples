@@ -1,4 +1,4 @@
-### ps info
+### Character driver sample
 
 In this module I'll do some simple
 character driver that implements ioctl,

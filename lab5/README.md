@@ -1,4 +1,4 @@
-### ps info
+### syscall sample
 
 In this module I'll add some syscall
 to the kernel. In order not to add the
